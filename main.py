@@ -3,6 +3,15 @@
 
 import tkinter as tk
 
+matrice = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+]
+
+def handle_click(event):
+    print("The button was clicked!", event, matrice)
+
 window = tk.Tk()
 
 for i in range(3):
@@ -13,11 +22,16 @@ for i in range(3):
         frame = tk.Frame(
             master=window,
             relief=tk.RAISED,
-            borderwidth=1
+            borderwidth=0
         )
         frame.grid(row=i, column=j, padx=5, pady=5)
+        button = tk.Button(master=frame,
+                           bg="black",
+                           fg="white",
+                           text=f"Row {i}\nColumn {j}")
+        button.bind("<Button-1>", handle_click)
+        button.pack(padx=5, pady=5)
+events_list = []
 
-        label = tk.Label(master=frame, text=f"Row {i}\nColumn {j}")
-        label.pack(padx=5, pady=5)
 
 window.mainloop()
