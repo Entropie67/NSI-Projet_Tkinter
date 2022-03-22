@@ -9,13 +9,14 @@ fenetre['bg'] = '#FA8072'
 
 def chiffrement():
     m = message.get()
-    m = "TRTR" + m + "TRTR"
+    m = "".join([str(ord(l)) for l in m.upper()])
     message_c.set(m)
 
 
 def dechiffrer():
-    ##variable.set("something")
-    return True
+    m = message_c.get()
+    m = "-".join([chr(int(m[i:i+2])) for i in range(len(m))])
+    message.set(m)
 
 # Nous allons créer deux frames
 message_clair = tk.LabelFrame (fenetre,text="Message en clair", bg="green", width=500, height=500)
@@ -23,9 +24,9 @@ message_clair.grid(row=0, column=0, sticky='W')
 message_chiffre = tk.LabelFrame (fenetre,text="Message chiffré", bg="red", width=500, height=500)
 message_chiffre.grid(row=0, column=1, sticky='W')
 # à l'interieur de chacune des frames
-bouton_chiffre = tk.Button(message_clair, text="Chiffrer !", command=lambda: chiffrement())
+bouton_chiffre = tk.Button(message_clair, text="Chiffrer ! ==>", command=lambda: chiffrement())
 bouton_chiffre.grid(row=2, column=0, sticky='N', pady=2)
-bouton_clair = tk.Button(message_chiffre, text="Dechiffrer", command=lambda: dechiffrer())
+bouton_clair = tk.Button(message_chiffre, text="Dechiffrer <==", command=lambda: dechiffrer())
 bouton_clair.grid(row=2, column=1, sticky='N', pady=2)
 # Les inputs
 message = tk.StringVar()
