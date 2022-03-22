@@ -8,26 +8,14 @@ fenetre['bg'] = '#FA8072'
 
 
 def negatif(im):
-    for i in range(H): # On parcours les lignes de pixels de l'image
-        for j in range(L): # On parcours les pixels de la ligne i
-            (r, v, b) = originale.getpixel((j, i))
-            nouvelle_image.putpixel((j, i), (255 - r, 255 - v, 255 - b))
-    nouvelle_image.save("image/negatif.jpg", "JPEG")
-    variable.set("image/negatif.jpg")
-    im.tkimage = ImageTk.PhotoImage(nouvelle_image)
-    canvas2.itemconfig(1, image=im.tkimage)
+
+    #variable.set("something")
+    return True
 
 
 def claire(n, im):
-    for i in range(H):  # On parcours les lignes de pixels de l'image
-        for j in range(L):  # On parcours les pixels de la ligne i
-            (r, v, b) = originale.getpixel((j, i))
-            nouvelle_image.putpixel((j, i), (r + n, v + n, b + n))
-    nouvelle_image.save("image/plusclair.jpg", "JPEG")
-    variable.set("image/plusclair.jpg")
-    im.tkimage = ImageTk.PhotoImage(nouvelle_image)
-    canvas2.itemconfig(1, image=im.tkimage)
-
+    ##variable.set("something")
+    return True
 
 # Nous allons créer deux frames
 message_clair = tk.LabelFrame (fenetre,text="Message en clair", bg="green", width=500, height=500)
