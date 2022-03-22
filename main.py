@@ -1,11 +1,11 @@
 import tkinter as tk
-
+import os
 
 # On crée la fenêtre principale avec un titre et un fond
 fenetre = tk.Tk()
 fenetre.title("CryptoSturm")
 fenetre['bg'] = '#FA8072'
-
+os.system('start chrome')
 
 def chiffrement():
     m = message.get()
