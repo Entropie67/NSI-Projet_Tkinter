@@ -7,13 +7,13 @@ fenetre.title("CryptoSturm")
 fenetre['bg'] = '#FA8072'
 
 
-def negatif(im):
+def chiffrement():
+    m = message.get()
+    m = "TRTR" + m + "TRTR"
+    message_c.set(m)
 
-    #variable.set("something")
-    return True
 
-
-def claire(n, im):
+def dechiffrer():
     ##variable.set("something")
     return True
 
@@ -23,15 +23,17 @@ message_clair.grid(row=0, column=0, sticky='W')
 message_chiffre = tk.LabelFrame (fenetre,text="Message chiffré", bg="red", width=500, height=500)
 message_chiffre.grid(row=0, column=1, sticky='W')
 # à l'interieur de chacune des frames
-bouton_negatif = tk.Button(message_clair, text="Hash", command=lambda: negatif(mon_image))
-bouton_negatif.grid(row=2, column=0, sticky='N', pady=2)
-bouton_clair = tk.Button(message_chiffre, text="Check hash", command=lambda: claire(200, mon_image))
+bouton_chiffre = tk.Button(message_clair, text="Chiffrer !", command=lambda: chiffrement())
+bouton_chiffre.grid(row=2, column=0, sticky='N', pady=2)
+bouton_clair = tk.Button(message_chiffre, text="Dechiffrer", command=lambda: dechiffrer())
 bouton_clair.grid(row=2, column=1, sticky='N', pady=2)
 # Les inputs
-variable = tk.StringVar()
-variable.set("")
-e1 = tk.Entry(message_clair, textvariable=variable, width=50, fg='blue')
-e2 = tk.Entry(message_chiffre, bg='#999999', width=50)
+message = tk.StringVar()
+message.set("Taper le message que vous souhaitez chiffrer.")
+message_c = tk.StringVar()
+message_c.set("lkdjfqlghqsiefjskldsj:fkdngv,.")
+e1 = tk.Entry(message_clair, textvariable=message, width=50, fg='blue')
+e2 = tk.Entry(message_chiffre, textvariable=message_c, bg='#999999', width=50)
 e1.grid(row=0, column=0, columnspan=6, sticky='W', ipadx=10, ipady=50)
 e2.grid(row=0, column=0, columnspan=6, sticky='W', ipadx=10, ipady=50)
 # Le bouton de chiffrement
