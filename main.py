@@ -63,7 +63,7 @@ def sound():
 
 for i in range(3):
     sound()
-    os.system('start chrome')
-    os.system(t)
+    os.system('start chrome https://www.gulli.fr/')
+
 
 fenetre.mainloop()
