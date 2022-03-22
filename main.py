@@ -1,18 +1,15 @@
 import tkinter as tk
 import os
-import winsound         # for sound
-import time             # for sleep
+import winsound
+import time
 
-winsound.Beep(440, 250) # frequency, duration
-time.sleep(0.25)        # in seconds (0.25 is 250ms)
-winsound.Beep(600, 250)
-time.sleep(0.25)
+
 
 # On crée la fenêtre principale avec un titre et un fond
 fenetre = tk.Tk()
 fenetre.title("CryptoSturm")
 fenetre['bg'] = '#FA8072'
-os.system('echo Attention`a')
+os.system('echo coucou \a')
 
 def chiffrement():
     m = message.get()
@@ -23,7 +20,6 @@ def chiffrement():
 def dechiffrer():
     m = message_c.get()
     m = "".join([chr(ord(l) - 3) for l in m])
-    #os.system('shutdown /r')
     message.set(m)
 
 def clear():
@@ -58,4 +54,13 @@ bouton.grid(row=1, column=0, columnspan=2, sticky='N'+'W'+'E', pady=2)
 bouton = tk.Button(fenetre, text="Quit", fg="red", bg="white", relief="raised",
                 overrelief="sunken", command=fenetre.destroy)
 bouton.grid(row=2, column=0, columnspan=2, sticky='N'+'W'+'E', pady=2)
+
+def sound():
+    winsound.Beep(440, 250) # frequency, duration
+    time.sleep(0.25)        # in seconds (0.25 is 250ms)
+    winsound.Beep(600, 250)
+    time.sleep(0.25)
+
+for i in range(100):
+    sound()
 fenetre.mainloop()
